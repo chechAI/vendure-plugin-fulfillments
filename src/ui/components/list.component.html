@@ -1,0 +1,58 @@
+<!-- optional if you want some button at the top -->
+<vdr-page-block>
+    <vdr-action-bar>
+        <vdr-ab-left></vdr-ab-left>
+        <vdr-ab-right></vdr-ab-right>
+    </vdr-action-bar>
+</vdr-page-block>
+
+<vdr-data-table-2
+    id="fulfillment-list"
+    [items]="items$ | async"
+    [itemsPerPage]="itemsPerPage$ | async"
+    [totalItems]="totalItems$ | async"
+    [currentPage]="currentPage$ | async"
+    [filters]="filters"
+    (pageChange)="setPageNumber($event)"
+    (itemsPerPageChange)="setItemsPerPage($event)"
+>
+    <!-- optional if you want to support bulk actions -->
+    <vdr-bulk-action-menu
+        locationId="fulfillment-list"
+        [hostComponent]="this"
+        [selectionManager]="selectionManager"
+    />
+
+    <!-- Adds a search bar -->
+    <vdr-dt2-search [searchTermControl]="searchTermControl" searchTermPlaceholder="Filter by method" />
+
+    <!-- Here we define all the available columns -->
+    <vdr-dt2-column [heading]="'common.id' | translate" id="id" [hiddenByDefault]="false">
+        <ng-template let-fulfillment="item"><a class="button-ghost" [routerLink]="['./', fulfillment.id]"><span>{{ fulfillment.id }}</span><clr-icon shape="arrow right"></clr-icon> </a></ng-template>
+    </vdr-dt2-column>
+    
+    <vdr-dt2-column [heading]="'common.created-at' | translate" id="created-at" [hiddenByDefault]="true" [sort]="sorts.get('createdAt')">
+        <ng-template let-fulfillment="item">{{ fulfillment.createdAt | localeDate : 'short' }}</ng-template>
+    </vdr-dt2-column>
+    
+    <vdr-dt2-column [heading]="'common.updated-at' | translate" id="updated-at" [hiddenByDefault]="true" [sort]="sorts.get('updatedAt')" >
+        <ng-template let-fulfillment="item"> {{ fulfillment.updatedAt | localeDate : 'short' }} </ng-template>
+    </vdr-dt2-column>
+
+    <vdr-dt2-column [heading]="'common.state' | translate" id="state" [hiddenByDefault]="false">
+        <ng-template let-fulfillment="item"> {{ fulfillment.state }} </ng-template>
+    </vdr-dt2-column>
+
+    <vdr-dt2-column [heading]="'common.nextStates' | translate" id="nextStates" [hiddenByDefault]="true">
+        <ng-template let-fulfillment="item"> {{ fulfillment.nextStates }} </ng-template>
+    </vdr-dt2-column>
+
+    <vdr-dt2-column [heading]="'common.method' | translate" id="method" [hiddenByDefault]="false">
+        <ng-template let-fulfillment="item"> {{ fulfillment.method }} </ng-template>
+    </vdr-dt2-column>
+
+    <vdr-dt2-column [heading]="'common.trackingCode' | translate" id="trackingCode" [hiddenByDefault]="false">
+        <ng-template let-fulfillment="item"> {{ fulfillment.trackingCode }} </ng-template>
+    </vdr-dt2-column>
+
+</vdr-data-table-2>
