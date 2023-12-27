@@ -1,4 +1,4 @@
-import { LanguageCode, PluginCommonModule, VendurePlugin } from '@vendure/core';
+import { PluginCommonModule, VendurePlugin } from '@vendure/core';
 import { AdminUiExtension } from '@vendure/ui-devkit/compiler';
 import path from 'path';
 
@@ -15,6 +15,7 @@ import { adminApiExtensions } from './api/api-extensions';
         ],
     },
     providers: [],
+    compatibility: '^2.0.0',
 })
 
 export class FulfillmentsPlugin {
