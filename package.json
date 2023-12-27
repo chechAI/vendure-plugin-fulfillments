@@ -6,6 +6,7 @@
   "repository": "git@github.com:jermainedafoe/vendure-plugin-fulfillments.git",
   "author": "Jermaine Dafoe <etesfaye@hotmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "codegen": "graphql-codegen --config ./codegen.json"
   },
