@@ -34,7 +34,10 @@ export class ListComponent
         .defaultSort('createdAt', 'DESC')
         .addSort({ name: 'createdAt' })
         .addSort({ name: 'updatedAt' })
+        .addSort({ name: 'id' })
+        .addSort({ name: 'state' })
         .addSort({ name: 'method' })
+        .addSort({ name: 'trackingCode' })
         .connectToRoute(this.route);
 
     constructor() {
