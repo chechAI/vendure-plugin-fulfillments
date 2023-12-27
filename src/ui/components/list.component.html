@@ -39,19 +39,19 @@
         <ng-template let-fulfillment="item"> {{ fulfillment.updatedAt | localeDate : 'short' }} </ng-template>
     </vdr-dt2-column>
 
-    <vdr-dt2-column [heading]="'common.state' | translate" id="state" [hiddenByDefault]="false">
+    <vdr-dt2-column [heading]="'order.state' | translate" id="state" [hiddenByDefault]="false">
         <ng-template let-fulfillment="item"> {{ fulfillment.state }} </ng-template>
     </vdr-dt2-column>
 
-    <vdr-dt2-column [heading]="'common.nextStates' | translate" id="nextStates" [hiddenByDefault]="true">
+    <vdr-dt2-column [heading]="'order.next-states' | translate" id="nextStates" [hiddenByDefault]="true">
         <ng-template let-fulfillment="item"> {{ fulfillment.nextStates }} </ng-template>
     </vdr-dt2-column>
 
-    <vdr-dt2-column [heading]="'common.method' | translate" id="method" [hiddenByDefault]="false">
+    <vdr-dt2-column [heading]="'order.fulfillment-method' | translate" id="method" [hiddenByDefault]="false">
         <ng-template let-fulfillment="item"> {{ fulfillment.method }} </ng-template>
     </vdr-dt2-column>
 
-    <vdr-dt2-column [heading]="'common.trackingCode' | translate" id="trackingCode" [hiddenByDefault]="false">
+    <vdr-dt2-column [heading]="'order.tracking-code' | translate" id="trackingCode" [hiddenByDefault]="false">
         <ng-template let-fulfillment="item"> {{ fulfillment.trackingCode }} </ng-template>
     </vdr-dt2-column>
 

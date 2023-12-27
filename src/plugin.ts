@@ -22,5 +22,6 @@ export class FulfillmentsPlugin {
         extensionPath: path.join(__dirname, 'ui'),
         routes: [{ route: 'fulfillments', filePath: 'routes.ts' }],
         providers: ['providers.ts'],
+        translations: { en: path.join(__dirname, 'i18n-messages/en.json'), }
     };
 }
